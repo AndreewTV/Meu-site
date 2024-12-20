@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa de 9 Meses</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            background-color: #ff4081;
+            color: white;
+            font-size: 20px;
+            padding: 18px 50px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background-color: #ff3366;
+            transform: scale(1.05);
+        }
+
+        #photo-text {
+            display: none;
+            margin-top: 40px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #f1f1f1;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        #photo-text p {
+            margin-bottom: 15px;
+        }
+
+        #celebration {
+            display: none;
+            font-size: 22px;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+
+        .rainbow-text {
+            animation: rainbow 3s linear infinite;
+            font-weight: bold;
+        }
+
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: blue; }
+            71% { color: indigo; }
+            85% { color: violet; }
+            100% { color: red; }
+        }
+
+        .photo {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .luxury-list {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            font-size: 18px;
+            text-align: left;
+            max-width: 80%;
+            margin: 0 auto;
+            color: #f1f1f1;
+        }
+
+        .luxury-list div {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 5px solid #ff4081;
+            font-weight: bold;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .luxury-list div:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+
+        #final-screen {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Efeitos de fogos de artifício */
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .firework {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            animation: firework-animation 1s ease-in-out infinite;
+        }
+
+        @keyframes firework-animation {
+            0% {
+                opacity: 1;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.5);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Primeira parte: Botão inicial -->
+        <div id="initial-button">
+            <button class="button" onclick="showPhotoAndText()">Clique para descobrir o quanto eu te amo</button>
+        </div>
+
+        <!-- Foto do casal que aparece acima do texto -->
+        <div id="photo-container" style="display: none;">
+            <!-- Coloque aqui a URL da sua foto -->
+            <img src="Mi.jpg" alt="Foto de Casal" class="photo">
+        </div>
+
+        <!-- Texto com as mensagens -->
+        <div id="photo-text" style="display: none;">
+            <p>1- Então né minha vida, 9 meses já em, nossa, quanto tempo, eu sempre pedi a Deus um amor tão bonito igual eu tenho, eu sempre agradeço a Deus e oro por você por ele ter me presenteado com alguém tão espetacular igual você, você mudou minha vida da água para o vinho, e pensa num vinho gostoso kkkkk brincadeira kkk</p>
+            <p>Então, obrigado por me escolher e ter paciência comigo, eu quero levar você para a minha vida todinha, casar com você e ser muito feliz conquistando nossas coisas!!! Muito obrigado por tudo!!! ❤️❤️❤️❤️</p>
+
+            <!-- Lista das características -->
+            <div class="luxury-list">
+                <div>Lindo</div>
+                <div>Inteligente</div>
+                <div>Paciente</div>
+                <div>Romântico</div>
+                <div>Carinhoso</div>
+                <div>Feliz</div>
+                <div>Atencioso</div>
+                <div>Dengoso</div>
+                <div>Ambicioso</div>
+                <div>Trabalhador</div>
+                <div>Coração imenso</div>
+                <div>Um baita de um gostoso rsrs</div>
+            </div>
+
+            <!-- Botão para mostrar "Feliz 9 meses!" -->
+            <button class="button" onclick="showFinalScreen()">Clique aqui para a surpresa final!</button>
+        </div>
+
+        <!-- Tela final de celebração -->
+        <div id="final-screen">
+            <p><span class="rainbow-text">Feliz 9 meses!</span> Obrigado por tudo meu amoooooorr!!!!!!!!! ❤️❤️❤️❤️🎉🎉🎉🥳👨‍❤️‍👨👨‍❤️‍👨👨‍❤️‍👨</p>
+
+            <!-- Foto após a celebração -->
+            <img src="Mi2.png" alt="Foto de celebração" class="photo">
+        </div>
+    </div>
+
+    <!-- Fogos de artifício (inicialmente invisível) -->
+    <div id="fireworks" class="fireworks" style="display: none;"></div>
+
+    <script>
+        // Função para mostrar a foto e o texto
+        function showPhotoAndText() {
+            document.getElementById("initial-button").style.display = "none";
+            document.getElementById("photo-container").style.display = "block";
+            document.getElementById("photo-text").style.display = "block";
+        }
+
+        // Função para mostrar a tela final com a mensagem de Feliz 9 meses
+        function showFinalScreen() {
+            document.getElementById("photo-text").style.display = "none";
+            document.getElementById("photo-container").style.display = "none";
+            document.getElementById("final-screen").style.display = "block";
+            createFireworks(); // Mostrar fogos de artifício após clicar no último botão
+            document.getElementById('fireworks').style.display = 'block'; // Ativar o container dos fogos
+        }
+
+        // Função para criar os fogos de artifício
+        function createFireworks() {
+            const fireworksContainer = document.getElementById('fireworks');
+            for (let i = 0; i < 50; i++) {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = `${Math.random() * 100}vw`;
+                firework.style.top = `${Math.random() * 100}vh`;
+                fireworksContainer.appendChild(firework);
+
+                setTimeout(() => {
+                    firework.remove();
+                }, 2000);
+            }
+        }
+    </script>
+
+</body>
+</html>
